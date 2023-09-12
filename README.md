@@ -1,2 +1,2 @@
-# Digital-Methods-
-Everything for the final project
+# Digital-Methods
+The repository contains all the files for the final project 
