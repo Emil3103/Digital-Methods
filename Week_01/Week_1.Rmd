@@ -1,0 +1,92 @@
+---
+title: "Week 1 - Regex/Tables"
+author: "Emil Bæk Mogensen"
+date: "2023-09-14"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+**Packages**
+
+```{r}
+library(tidyverse)
+library(tinytex)
+library(knitr)
+```
+
+**1a) What regular expressions do you use to extract all the dates and to put them into the following format YYYY-MM-DD?**
+
+```{r}
+ #Regex: \d{1,2}.\d{1,2}.*?\d{4}
+```
+
+![](images/Juan_Ponce_1.png){width="680"}
+
+To make them the same format grouping is needed of the above explanation. The regex will then look like the following
+
+```{r}
+
+#Regex: (\d{1,2}).(\d{1,2}).*?(\d{4})
+```
+
+![](images/Juan_Ponce_2.png){width="680"}
+
+The substitution pattern formats the text into the same format:
+
+```{r}
+#Substitute: $3-$2-$1 
+```
+
+![](images/Juan_Ponce_3.png){width="680"}
+
+**2a) Write a regular expression to convert the stopwordlist (list of most frequent Danish words) from Voyant into a neat stopword list for R (which comprises "words" separated by commas.**
+
+The following substitution makes the stopword list for R as in words separated by commas.
+
+```{r}
+# Regex: ([A-Za-z0-9æøå]+)
+```
+
+![](images/Stopwordlist_Voyant.png){width="680"}
+
+The following substitution makes the stopword list for R as in words separated by commas.
+
+```{r}
+# Substitute: "$1",
+```
+
+![](images/Stopwordlist_Voyant_2.png){width="680"}
+
+2b) **Then take the stopwordlist and convert it into a Voyant list of words on separate line without interpunction) To convert the R stopwordlist into Voyant list:**
+
+To convert the R stopwordlist into a Voyant list I used the expression
+
+```{r}
+# Regex:  "(\S+)"(, |$)
+
+```
+
+![](images/Stopwordlist_Voyant_3.png){width="680"}
+
+```{r}
+# Substitute: $1\n
+```
+
+![](images/Stopwordlist_Voyant_4png.png){width="680"}
+
+3)  **In 250 words, answer the following question: "What are the basic principles for using spreadsheets for good data organisation?**
+
+When working with big datas in programs such as excel, it is important to do all tables in different sheets or different files. Multiple tables can draw false associations for the computer, but it also makes it easier as a researcher or reader to keep a clear overview. In extension, making backups and using any form of version control like git is crucial for backtracking and reproducing the science. It is all about standardization or, tidying the data. When one takes into account that 80 % of data analysis is spent on cleaning and preparing it. (Dasu and Johnson 2003) In tidy data each variable forms a column, each observation forms a row, and each observational unit forms a table (Wickham 2014). Furthermore, following a consistent structure inside a rectangular sheet combined with the 'tidy' approach, which emprises a coherent structure and consistency in regard to variable names, subject identifiers, data layout, file names, avoiding special characters and using the same dating format such as the "ISO 8601" standard, further eliminates errors, mistakes and allows other researchers to work with the science more fluently. Although it is debated whether filling out empty cells with NA or leaving them blank is the best, what is key is following the same consistent structure as long as it does not interfere with the given program's calculations. Lastly, it is of the upmost importance that one never edits or works in the raw data, which should always be saved as a raw text file where editing is disabled before it is opened. Importing and working on the data in a different file ensures that the risk of human errors, i.e., unintentional manipulation of the raw data, is eliminated.
+
+4)  Challenge (OPTIONAL): Can you find all the instances of 'Dis Manibus' invocation?
+
+```{r}
+# \b(?:D\s?M(?:\sS)?|Di[si]{1,2}\sM[ai]{1,2}nibus(?:\sSacrum)?)\b
+```
+
+![](images/Dis_Manibus_1.png){width="680"}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
