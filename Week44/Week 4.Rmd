@@ -1,0 +1,40 @@
+---
+title: "Week 3 - Start with R"
+author: "Emil Bæk Mogensen"
+date: "2023-09-14"
+output:
+  html_document: default
+  pdf_document: default
+---
+Packages
+```{r}
+library(tidyverse)
+```
+
+For this assignment, please answer the following three questions showing your code and results and then take a particular screenshot of your working environment. You can upload here (to Brightspace) the code and the URL to the screenshot OR submit everything to Github and submit here a single link to your repository.
+
+
+1) Use R to figure out how many elements in the vector below are greater than 2.
+
+```{r}
+rooms <- c(1, 2, 1, 3, 1, NA, 3, 1, 3, 2, 1, NA, 1, 8, 3, 1, 4, NA, 1, 3, 1, 2, 1, 7, 1, NA)
+rooms <- rooms[!is.na(rooms)]
+length(rooms[rooms > 2])
+```
+2) What type of data is in the 'rooms' vector? 
+```{r}
+class(rooms)
+```
+
+
+3) What is the result of running the median() function on the above 'rooms' vector?
+
+```{r}
+median(rooms)
+```
+# 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
