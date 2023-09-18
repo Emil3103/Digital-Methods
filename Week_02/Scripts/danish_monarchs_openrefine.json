@@ -1,0 +1,238 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__image__copyright",
+    "description": "Remove column carousel__slide__image__copyright"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "royal-line__monarch__item__content__image__src src",
+    "description": "Remove column royal-line__monarch__item__content__image__src src"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__content__container__title",
+    "description": "Remove column carousel__slide__content__container__title"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "carousel__slide__content__container__text__content",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ")",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Split column carousel__slide__content__container__text__content by separator"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__content__container__text__content 2",
+    "description": "Remove column carousel__slide__content__container__text__content 2"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__content__container__text__content 3",
+    "description": "Remove column carousel__slide__content__container__text__content 3"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__content__container__text__content 4",
+    "description": "Remove column carousel__slide__content__container__text__content 4"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__content__container__text__content 5",
+    "description": "Remove column carousel__slide__content__container__text__content 5"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "carousel__slide__content__container__text__content 1",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "(",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Split column carousel__slide__content__container__text__content 1 by separator"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__content__container__text__content 1 1",
+    "description": "Remove column carousel__slide__content__container__text__content 1 1"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "carousel__slide__content__container__text__content 1 2",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "-",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Split column carousel__slide__content__container__text__content 1 2 by separator"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "royal-line__monarch__slider__header__title",
+    "newColumnName": "Name",
+    "description": "Rename column royal-line__monarch__slider__header__title to Name"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "carousel__slide__content__container__text__content 1 2 1",
+    "newColumnName": "Born_Day",
+    "description": "Rename column carousel__slide__content__container__text__content 1 2 1 to Born_Day"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Born_Day",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "d.",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Split column Born_Day by separator"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "royal-line__monarch__item__content__period",
+    "index": 0,
+    "description": "Move column royal-line__monarch__item__content__period to position 0"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "royal-line__monarch__item__content__period",
+    "index": 1,
+    "description": "Move column royal-line__monarch__item__content__period to position 1"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "royal-line__monarch__item__content__period",
+    "newColumnName": "Reign_Period",
+    "description": "Rename column royal-line__monarch__item__content__period to Reign_Period"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Reign_Period",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "-",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Split column Reign_Period by separator"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Reign_Period 1",
+    "newColumnName": "Reign_Begin",
+    "description": "Rename column Reign_Period 1 to Reign_Begin"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Reign_Period 2",
+    "newColumnName": "Reign_End",
+    "description": "Rename column Reign_Period 2 to Reign_End"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Reign_Begin",
+    "index": 5,
+    "description": "Move column Reign_Begin to position 5"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Reign_End",
+    "index": 5,
+    "description": "Move column Reign_End to position 5"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Born_Day 2",
+    "expression": "join ([coalesce(cells['Born_Day 2'].value,''),coalesce(cells['carousel__slide__content__container__text__content 1 2 2'].value,'')],'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Born_Day 2 using expression join ([coalesce(cells['Born_Day 2'].value,''),coalesce(cells['carousel__slide__content__container__text__content 1 2 2'].value,'')],'')"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Born_Day 2",
+    "newColumnName": "Death",
+    "description": "Rename column Born_Day 2 to Death"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "carousel__slide__content__container__text__content 1 2 2",
+    "description": "Remove column carousel__slide__content__container__text__content 1 2 2"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Born_Day 1",
+    "expression": "value.replace(\"ca.\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Born_Day 1 using expression value.replace(\"ca.\",\"\")"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Born_Day 1",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ".",
+    "regex": false,
+    "maxColumns": 3,
+    "description": "Split column Born_Day 1 by separator"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Death",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ".",
+    "regex": false,
+    "maxColumns": 3,
+    "description": "Split column Death by separator"
+  }
+]
