@@ -3,8 +3,8 @@ title: "Week 2 - OpenRefine"
 author: "Emil Bæk Mogensen"
 date: "2023-09-14"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 **Packages**
