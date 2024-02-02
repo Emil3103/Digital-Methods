@@ -4,8 +4,7 @@ The repository contains all my files for the 'Digital Methods for Historians' su
 
 In here you will find four chosen homework assignments and a final selfmade digital project.
 In each folder you will the html, pdf and .md files of the answers to the weekly assignments.
-Clicking screenshots and highlighted words marked with blue will send you directly to the location of the file in this GitHub repository. 
-Programming language used is R. Programs used are Openrefine version 3.7.5 and Rstudio version 4.3.1. Libraries will be listed when used.
+
 
 # My PC Specs are
 Operating System: Windows 10 Education 64-bit (10.0, Build 19045) 
