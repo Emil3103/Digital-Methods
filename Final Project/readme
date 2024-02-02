@@ -1,1 +1,43 @@
+# First i ran some libraries
+library(tm)
+library(pdftools)
+library(ggplot2)
+library(tidyverse)
+library(tidytext)
 
+# Then i read the speeches into the environment
+file_path1 <- "C:/Users/Emil/OneDrive/Dokumenter/Historie/Putins_speech_21st_february.pdf"
+file_path2 <- "C:/Users/Emil/OneDrive/Dokumenter/Historie/Putins_speech_24th_february.pdf"
+text1 <- pdf_text(file_path1)
+text2 <- pdf_text(file_path2)
+
+# Then i combined them into one
+combinedText <- paste(text1, text2, sep=" ")
+
+# THen i created a corpus
+corpus <- Corpus(VectorSource(combinedText))
+
+# Then i preprocessed the corpus
+corpusClean <- tm_map(corpus, content_transformer(tolower))
+corpusClean <- tm_map(corpusClean, removePunctuation)
+corpusClean <- tm_map(corpusClean, removeNumbers)
+corpusClean <- tm_map(corpusClean, stripWhitespace)
+corpusClean <- tm_map(corpusClean, removeWords, stopwords("english"))
+
+# Then i created a term-document matrix
+tdm <- TermDocumentMatrix(corpusClean)
+
+# Converted it matrix and calculated word frequencies
+m <- as.matrix(tdm)
+wordFreq <- sort(rowSums(m), decreasing=TRUE)
+top20Words <- wordFreq[1:20]
+
+# Then i converted the top 20 words into a data frame for plotting
+df_top20Words <- data.frame(word = names(top20Words), frequency = as.numeric(top20Words))
+
+# Finally, i plotted the graph using ggplot2
+ggplot(df_top20Words, aes(x=reorder(word, frequency), y=frequency)) +
+    geom_bar(stat="identity", fill="steelblue") +
+    theme_minimal() +
+    labs(title="Top 20 Most Frequent Words in Putin's Speeches", x="", y="Frequency") +
+    coord_flip()  # Flip the axes for better readability of word labels
